@@ -1,0 +1,59 @@
+{# Usage: {% from "_spec_sheet.html" import spec_sheet %} {{ spec_sheet(project, loop.index, loop.length) }} #}
+{% macro arrow() %}
+<span class="spec__arrow" aria-hidden="true">
+  <svg width="48" height="16" viewBox="0 0 48 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 8H44M38 2l6 6-6 6"/></svg>
+</span>
+{% endmacro %}
+
+{% macro stage(label, item, modifier="") %}
+<div class="spec__stage {{ modifier }}">
+  <span class="spec__label">{{ label }}</span>
+  <span class="spec__stage-title">{{ item.title }}</span>
+  <span class="spec__stage-note">{{ item.note }}</span>
+</div>
+{% endmacro %}
+
+{% macro spec_sheet(p, n, total) %}
+<article class="spec" id="{{ p.slug }}" aria-labelledby="{{ p.slug }}-title">
+  <header class="spec__bar">
+    <span class="spec__label spec__label--accent">Project spec sheet {{ "%02d"|format(n) }}</span>
+    <span class="spec__label">Sheet {{ "%02d"|format(n) }} of {{ "%02d"|format(total) }}</span>
+  </header>
+
+  <div class="spec__head">
+    <h2 class="spec__title" id="{{ p.slug }}-title">{{ p.name }}</h2>
+    <p class="spec__tagline">{{ p.tagline }}</p>
+  </div>
+
+  <p class="spec__problem">
+    <span class="spec__label spec__label--accent">Problem</span>
+    <span>{{ p.problem }}</span>
+  </p>
+
+  <div class="spec__flow">
+    {{ stage("Input", p.input) }}
+    {{ arrow() }}
+    {{ stage("Process", p.process, "spec__stage--key") }}
+    {{ arrow() }}
+    {{ stage("Output", p.output) }}
+  </div>
+
+  <dl class="spec__facts">
+    <div><dt class="spec__label">Stack</dt><dd>{{ p.stack }}</dd></div>
+    <div><dt class="spec__label">Time saved</dt><dd class="spec__accent">{{ p.time_saved }}</dd></div>
+    <div><dt class="spec__label">Demo</dt><dd>{{ p.demo_label }}</dd></div>
+    <div><dt class="spec__label">Source</dt><dd>GitHub repo</dd></div>
+  </dl>
+
+  <footer class="spec__actions">
+    <div class="spec__buttons">
+      {% if p.demo_url %}<a class="btn btn--primary" href="{{ p.demo_url }}">Run demo</a>{% endif %}
+      <a class="btn" href="{{ p.github_url }}" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="spec__titleblock">
+      <div>Drawn by: Musawer Ahmed</div>
+      <div>Python automation developer</div>
+    </div>
+  </footer>
+</article>
+{% endmacro %}

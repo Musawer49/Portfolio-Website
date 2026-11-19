@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from "_spec_sheet.html" import spec_sheet %}
+
+{% block content %}
+<h1 class="page-title">Projects</h1>
+{% for p in projects %}
+  {{ spec_sheet(p, loop.index, loop.length) }}
+{% endfor %}
+{% endblock %}
+
