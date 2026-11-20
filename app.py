@@ -6,8 +6,8 @@ app = Flask(__name__)
 PROJECTS = [
     {
         "slug": "project-one",
-        "name": "[PROJECT NAME]",
-        "tagline": "[One line: what this script automates]",
+        "name": "Personal Expense Tracker",
+        "tagline": "It tracks your personal expenses",
         "problem": "[What was slow, manual or error-prone before this existed]",
         "input": {"title": "[e.g. messy CSV files]", "note": "[Where the data comes from]"},
         "process": {"title": "[e.g. clean, validate, merge]", "note": "[The Python logic in one line]"},

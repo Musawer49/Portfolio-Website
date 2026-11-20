@@ -2,9 +2,40 @@
 {% from "_spec_sheet.html" import spec_sheet %}
 
 {% block content %}
-<h1 class="page-title">Projects</h1>
+<section class="hero">
+  <p class="hero__eyebrow">Python automation developer</p>
+  <h1 class="hero__name">Musawer Ahmed</h1>
+  <p class="hero__pitch">I build Python scripts and tools that automate repetitive work.</p>
+  <p class="hero__status">Open to paid internships, entry-level roles and remote work · Quetta, Pakistan</p>
+  <div class="hero__buttons">
+    <a class="btn btn--primary" href="#projects">View projects</a>
+    <a class="btn" href="{{ url_for('static', filename='files/resume.pdf') }}" download>Download resume</a>
+  </div>
+</section>
+
+<h2 class="page-title" id="projects">Projects</h2>
 {% for p in projects %}
   {{ spec_sheet(p, loop.index, loop.length) }}
 {% endfor %}
+<section class="about" id="about">
+  <h2 class="page-title">About</h2>
+  <p class="about__text">[3 to 4 sentences: who you are, what you automate, what you are looking for]</p>
+  <ul class="about__skills" aria-label="Skills">
+    <li>Python</li>
+    <li>Flask</li>
+    <li>Tkinter</li>
+    <li>[add only tools you have really used]</li>
+  </ul>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="page-title">Contact</h2>
+  <p class="about__text">I'm looking for a paid internship or entry-level role. Email me or find me online.</p>
+  <div class="contact__links">
+    <a class="btn btn--primary" href="mailto:musawerahmedkhan2003@gmail.com">Email me</a>
+    <a class="btn" href="https://www.linkedin.com/in/musawer-a-8b14b524b/" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/Musawer49" rel="noopener">GitHub</a>
+  </div>
+</section>
 {% endblock %}
 
