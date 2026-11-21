@@ -38,6 +38,13 @@
     {{ stage("Output", p.output) }}
   </div>
 
+    {% if p.image %}
+  <figure class="spec__shot">
+    <img src="{{ url_for('static', filename='img/' ~ p.image) }}" alt="{{ p.image_alt }}" loading="lazy">
+    <figcaption class="spec__label">Screenshot</figcaption>
+  </figure>
+  {% endif %}
+
   <dl class="spec__facts">
     <div><dt class="spec__label">Stack</dt><dd>{{ p.stack }}</dd></div>
     <div><dt class="spec__label">Time saved</dt><dd class="spec__accent">{{ p.time_saved }}</dd></div>

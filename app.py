@@ -16,6 +16,8 @@ PROJECTS = [
         "time_saved": "[X hrs → Y sec]",
         "demo_label": "[Live, sample data]",
         "demo_url": None,
+        "image": "expense-tracker.png",
+        "image_alt": "Describe what the screenshot shows, e.g. the main window with the expense list and budget summary",
         "github_url": "https://github.com/Musawer49/[repo-name]",
     },
 ]
