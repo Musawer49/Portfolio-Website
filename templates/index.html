@@ -3,14 +3,20 @@
 
 {% block content %}
 <section class="hero">
-  <p class="hero__eyebrow">Python automation developer</p>
-  <h1 class="hero__name">Musawer Ahmed</h1>
-  <p class="hero__pitch">I build Python scripts and tools that automate repetitive work.</p>
-  <p class="hero__status">Open to paid internships, entry-level roles and remote work · Quetta, Pakistan</p>
-  <div class="hero__buttons">
-    <a class="btn btn--primary" href="#projects">View projects</a>
-    <a class="btn" href="{{ url_for('static', filename='files/resume.pdf') }}" download>Download resume</a>
+  <div class="hero__text">
+    <p class="hero__eyebrow">Python automation developer</p>
+    <h1 class="hero__name">Musawer Ahmed</h1>
+    <p class="hero__pitch">I build Python scripts and tools that automate repetitive work.</p>
+    <p class="hero__status">Open to paid internships, entry-level roles and remote work · Quetta, Pakistan</p>
+    <div class="hero__buttons">
+      <a class="btn btn--primary" href="#projects">View projects</a>
+      <a class="btn" href="{{ url_for('static', filename='files/resume.pdf') }}" download>Download resume</a>
+    </div>
   </div>
+  <figure class="hero__photo">
+    <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Portrait of Musawer Ahmed" width="800" height="800">
+    <figcaption class="spec__label">Fig. 01 · Musawer Ahmed</figcaption>
+  </figure>
 </section>
 
 <h2 class="page-title" id="projects">Projects</h2>
